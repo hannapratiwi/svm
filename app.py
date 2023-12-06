@@ -17,17 +17,20 @@ from sklearn.metrics import confusion_matrix,classification_report
 #preprocessing data
 clean = pd.read_csv("preprocessingfixbanget.csv")
 
-st.header ("GSite")
+st.header("GSite")
+def set_background_color(hex_color):
+    script = f"""
+        <style>
+            body {{
+                background-color: #FFAD84;
+            }}
+        </style>
+    """
+    st.markdown(script, unsafe_allow_html=True)
 
-#tema = ["Portofolio", "Marketing", "Company Profile"]
-#tema_selected = st.selectbox("Silahkan pilih tema", options = tema)
-#tema_mapping = {
-#     "Portofolio": 1,
-#     "Marketing": 2,
-#     "Company Profile": 3
-# }
-#selected_value = tema_mapping.get(tema_selected)
-tema = st.text_input("Tentukan tema")
+tema = ["Portofolio", "Marketing", "Company Profile"]
+tema_selected = st.selectbox("Silahkan pilih tema", options = tema)
+#tema = ["Portofolio", "Marketing", "Company Profile"]    
 page = st.text_input("Jumlah halaman")
 menu = st.text_input("Jumlah menu")
 font = st.text_input("Tentukan font, contoh Open Sans")
